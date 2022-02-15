@@ -10,4 +10,4 @@ module.exports = function(app){
     );
 };
 
-//커밋이 안되냐 외
+//커밋아 되어라~
