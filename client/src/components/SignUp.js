@@ -83,7 +83,7 @@ const styles = {
 
 export default function SignUp() {
 
-  const [name,setName] = useState("");
+  const [username,setName] = useState("");
   //이름 설정하는 변수
 
   const [ searchYear, setSearchYear ] = useState(new Date().getFullYear())
@@ -109,6 +109,7 @@ export default function SignUp() {
   const handleChange  = (e, type) => {
     const value = e.target.value;
     type === 'year' ? setSearchYear(value) : (type === 'month' ? setSearchMonth(value) : setSearchDate(value))
+    
     var birthDate = searchYear + searchMonth + searchDate;
     console.log(birthDate)
   };
@@ -149,7 +150,7 @@ export default function SignUp() {
                       fullWidth
                       label="이름"
                       onChange = {nameChange}
-                      value = {name}
+                      value = {username}
                       
                     />
                   </Grid>
@@ -262,8 +263,9 @@ export default function SignUp() {
                   onClick={()=> {
                     navigate
                     ('/result',
-                    { state: { name: name ,
+                    { state: { username: username ,
                       birthDate : searchYear +"/"+ searchMonth+"/" + searchDate, 
+                      birthYear : searchYear,
                       flag: flag}}
                     )
                   }}

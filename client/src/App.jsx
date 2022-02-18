@@ -2,16 +2,10 @@ import React, { useEffect } from "react";
 import Intro from './Intro'
 import axios from "axios";
 
+
 function App() {
   
-  const callApi=async()=> {
-    axios.get("http://localhost:3000/api").then((res)=> console.log(res.data.test));
-  };
-
-  useEffect(()=>{
-    callApi();
-  },[]);
-
+  
   return(
     <>
       <Intro />
