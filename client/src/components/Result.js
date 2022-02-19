@@ -21,7 +21,13 @@ export default function Result()
 
     const callApi = async () => {
         axios.get("/api",{
-       
+        params :
+        {
+          //serviceKey : decodeURIComponent("Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D"),
+          lunYear : "1996",
+          lunMonth : "09",
+          lunDay : "18"
+        }
         }
         ).then((res)=> {
         setIlju(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text);

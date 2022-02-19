@@ -30,8 +30,8 @@ router.get("/", (req,res) => {
         }, 
        
         (error, response, body) => {
-            const xmlToJson = converter.xml2json(body);
-            res.send(xmlToJson);
+            //const xmlToJson = converter.xml2json(body);
+            //res.send(xmlToJson);
         }
     );
 });
