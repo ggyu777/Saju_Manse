@@ -4,6 +4,13 @@ import axios from "axios";
 
 export default function Result()
 {
+    let params = { lunYear: "1996", lunMonth : "09",lunDay : "18" };
+
+    let query = Object.keys(params) .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) .join('&');
+
+    let url = '/api&' + query;
+
+
     const [ilju,setIlju] = useState('');
 
     const location = useLocation();
@@ -13,13 +20,13 @@ export default function Result()
     const birthYear1 = location.state.birthYear;
     const flag1 = location.state.flag;
 
-
+//.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)
 
     const SorL = (flag1 ? "양력" : "음력")
     console.log(birthday)
-    fetch("http://apis.data.go.kr/B090041/openapi/service/LrsrCldInfoService/getLunCalInfo?serviceKey=Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D")
-    .then((response) => response.json(console.log(response.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)))
-    .then((data) => console.log(data));
+    fetch( url , )
+    .then((response) => response.json(console.log(response)))
+    .then((data) => data.json(console.log(data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)));
     /*const callApi = async () => {
         axios.get("/api",{
         params :
