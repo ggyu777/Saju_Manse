@@ -8,7 +8,7 @@ export default function Result()
 
     let query = Object.keys(params) .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) .join('&');
 
-    let url = '/api&' + query;
+    let url = '/api?' + 'serviceKey'+ ('=Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D&') + query;
 
 
     const [ilju,setIlju] = useState('');
@@ -24,30 +24,20 @@ export default function Result()
 
     const SorL = (flag1 ? "양력" : "음력")
     console.log(birthday)
-    fetch( url , )
-    .then((response) => response.json(console.log(response)))
-    .then((data) => data.json(console.log(data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)));
-    /*const callApi = async () => {
-        axios.get("/api",{
-        params :
-        {
-          //serviceKey : decodeURIComponent("Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D"),
-          lunYear : "1996",
-          lunMonth : "09",
-          lunDay : "18"
-        }
-        }
-        ).then((res)=> {
-        setIlju(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text);
-        console.log(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text);
+ 
 
+ //   .then((data) => console.log(elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text))
+    const callApi = async () => {
+        axios.get(url,
+        ).then((res)=> {
+        console.log((res));
       })
       };
     
       useEffect(()=>{
         callApi();
       },[]);
-    */
+    
     return(
         <div> 내이름은 {name1} 이고 
         생년월일은 {SorL} {birthday} 야! 그리고 {ilju} 일주야! </div>

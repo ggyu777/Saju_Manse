@@ -2,7 +2,7 @@
   "scripts": {
     "server": "cd server && nodemon server",
     "client": "cd client && npm start",
-    "start" : "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "concurrently": "^7.0.0",
@@ -11,7 +11,8 @@
     "nodemon": "^2.0.15",
     "react-router-dom": "^6.2.1",
     "request": "^2.88.2",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "xml-json": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
