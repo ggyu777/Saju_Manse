@@ -4,12 +4,13 @@ import axios from "axios";
 
 export default function Result()
 {
-    let params = { lunYear: "1996", lunMonth : "09",lunDay : "18" };
-
+    let params = { solYear: "1996",solMonth : "09",solDay : "18" };
+    //let query = encodeURIComponent('lunYear') + '=' + encodeURIComponent("1996")+'&'+ encodeURIComponent('lunMonth') + '=' + encodeURIComponent("09") + '&'+encodeURIComponent('lunDay') + '=' + encodeURIComponent("18");
     let query = Object.keys(params) .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) .join('&');
 
-    let url = '/api?' + 'serviceKey'+ ('=Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D&') + query;
+    let url = 'http://localhost:5000/api?' + 'serviceKey=Tcv1D3HbX2tvmM9kiulXfVycMLwOvXeTrVDbaCOMDhLabVxSuz0oyd%2FviaMRqdfA%2FpRdHQnCtO3GyupkmZBbmw%3D%3D'+'&'+ query;
 
+    
 
     const [ilju,setIlju] = useState('');
 
@@ -30,7 +31,7 @@ export default function Result()
     const callApi = async () => {
         axios.get(url,
         ).then((res)=> {
-        console.log((res));
+        console.log((res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text));
       })
       };
     
