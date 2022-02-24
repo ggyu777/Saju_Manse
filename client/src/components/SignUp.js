@@ -98,7 +98,8 @@ export default function SignUp() {
   const handleClick = () => {
     setFlag(!flag);
   };
-  // 클릭 시 양/음력 변환
+  // 클릭 시 양/음력 변환 
+  // true > 양력 false > 음력
 
   const nameChange = (e) =>{
     setName(e.target.value);
@@ -266,6 +267,8 @@ export default function SignUp() {
                     { state: { username: username ,
                       birthDate : searchYear +"/"+ searchMonth+"/" + searchDate, 
                       birthYear : searchYear,
+                      birthMonth : searchMonth,
+                      birthDay : searchDate,
                       flag: flag}}
                     )
                   }}

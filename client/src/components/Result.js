@@ -4,7 +4,21 @@ import axios from "axios";
 
 export default function Result()
 {
-    let params = { solYear: "1996",solMonth : "09",solDay : "18" };
+    const location = useLocation();
+
+    const birthYear1 = location.state.birthYear;
+    var birthMonth1 = location.state.birthMonth;
+    if (birthMonth1<10)
+    {
+      birthMonth1 = '0' + birthMonth1;
+    }
+    var birthDay1 = location.state.birthDay;
+    if( birthDay1<10 )
+    {
+      birthDay1 = '0' + birthDay1;
+    }
+
+    let params = { solYear: birthYear1, solMonth : birthMonth1 ,solDay : birthDay1 };
     //let query = encodeURIComponent('lunYear') + '=' + encodeURIComponent("1996")+'&'+ encodeURIComponent('lunMonth') + '=' + encodeURIComponent("09") + '&'+encodeURIComponent('lunDay') + '=' + encodeURIComponent("18");
     let query = Object.keys(params) .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) .join('&');
 
@@ -14,11 +28,9 @@ export default function Result()
 
     const [ilju,setIlju] = useState('');
 
-    const location = useLocation();
 
     const name1 = location.state.username;
     const birthday = location.state.birthDate;
-    const birthYear1 = location.state.birthYear;
     const flag1 = location.state.flag;
 
 //.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)
@@ -31,7 +43,7 @@ export default function Result()
     const callApi = async () => {
         axios.get(url,
         ).then((res)=> {
-        console.log((res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text));
+        console.log(setIlju(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text));
       })
       };
     
@@ -39,6 +51,7 @@ export default function Result()
         callApi();
       },[]);
     
+
     return(
         <div> 내이름은 {name1} 이고 
         생년월일은 {SorL} {birthday} 야! 그리고 {ilju} 일주야! </div>
