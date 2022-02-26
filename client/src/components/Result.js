@@ -39,7 +39,8 @@ export default function Result()
     let ismunt = true;
 
     const callApi = async () => {
-      axios.get(url).then((res)=>console.log(setIlju(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)))
+      axios.get(url,
+        ).then((res) => console.log(setIlju(res.data.elements[0].elements[1].elements[0].elements[0].elements[1].elements[0].text)))
       };
     
       useEffect(()=>{
