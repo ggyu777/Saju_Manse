@@ -36,7 +36,6 @@ export default function Result()
     const SorL = (flag1 ? "양력" : "음력")
     console.log(birthday)
  
-    let ismunt = true;
 
     const callApi = async () => {
       axios.get(url,
@@ -44,9 +43,10 @@ export default function Result()
       };
     
       useEffect(()=>{
-   
           callApi();
-  
+        return ()=>{
+
+        }
       },[]);
     
 
