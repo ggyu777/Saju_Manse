@@ -2,7 +2,8 @@ import React from "react";
 import {  Typography,Container } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-
+import IntroIMG from './image/IntroIMG.png';
+import './Card.css';
 
 const Intro = () => {
     function handleClick(){
@@ -12,11 +13,12 @@ const Intro = () => {
 
     return (
         <main>
-            <div>
-                        <Container maxWidth ='sm' style={{marginTop: '100px'}}> 
+            <div class="card"> 
+            <img src = {IntroIMG} style={{display: "block"}} margin='0px auto'/>
+                        <Container  style={{marginTop: '100px'}}> 
 
                             <Typography variant="h1" align='center' color='textPrimary' gutterBottom>
-                                사주로 보는 당신의 일주는?
+                                사주로 보는 나는?
                             </Typography>
 
                             <Typography variant="h1" align='center' style={{marginTop: '100px'}}>
