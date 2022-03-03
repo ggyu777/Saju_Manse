@@ -12,12 +12,15 @@ const Intro = () => {
     // 클릭 시 /user로 링크 이동
 
     return (
+        
         <main>
+            
             <div class="card"> 
-            <img src = {IntroIMG} style={{display: "block"}} margin='0px auto'/>
+           
+            <img src = {IntroIMG} style={{maxWidth:'27vw'}} />
                         <Container  style={{marginTop: '100px'}}> 
-
-                            <Typography variant="h1" align='center' color='textPrimary' gutterBottom>
+                            
+                            <Typography variant="h3" align='center' color='textPrimary' gutterBottom>
                                 사주로 보는 나는?
                             </Typography>
 
@@ -28,6 +31,7 @@ const Intro = () => {
                             </Typography>
 
                         </Container>
+
             </div>
         </main>
     );
