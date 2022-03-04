@@ -18,6 +18,7 @@ const Intro = () => {
             <div class="card"> 
            
             <img src = {IntroIMG} style={{maxWidth:'27vw'}} />
+                <div class="text-wrap">
                         <Container  style={{marginTop: '100px'}}> 
                             
                             <Typography variant="h3" align='center' color='textPrimary' gutterBottom>
@@ -31,7 +32,7 @@ const Intro = () => {
                             </Typography>
 
                         </Container>
-
+                </div>
             </div>
         </main>
     );
