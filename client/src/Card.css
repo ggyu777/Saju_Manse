@@ -8,7 +8,8 @@
 
 .text-wrap{
     position: absolute;
-    top: 50%;
+    width: 27vw;
+    top: 30%;
 	left: 50%;
     transform: translate( -50%, -50% );
 }
