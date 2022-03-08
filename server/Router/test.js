@@ -20,8 +20,6 @@ const url = 'http://apis.data.go.kr/B090041/openapi/service/LrsrCldInfoService/g
 //queryparams +=  '&'+ encodeURIComponent('solMonth') + '=' + encodeURIComponent("09"); 
 //queryparams +=  '&'+ encodeURIComponent('solDay') + '=' + encodeURIComponent("18"); 
 
-// 양력을 음력으로
-
 router.get("/", (req,res) => {
 
 
@@ -30,9 +28,9 @@ router.get("/", (req,res) => {
     const solDay = req.query.solDay;
     // 양력인 경우
 
-  //  const lunYear = req.query.lunYear;
-  //  const lunMonth = req.query.lunMonth;
-  //  const lunDay = req.query.lunDay;
+//  const lunYear = req.query.lunYear;
+//  const lunMonth = req.query.lunMonth;
+//  const lunDay = req.query.lunDay;
     // 음력인 경우
 
 
