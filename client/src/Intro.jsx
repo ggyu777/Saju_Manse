@@ -29,7 +29,8 @@ const styles = {
   // 박스 안쪽 텍스트 컬러
   "&.MuiButton-outlined": {
         color: amber[100]
-  }
+  },
+  borderRadius: 28
 }; 
 
 const purpleTheme = createTheme({
