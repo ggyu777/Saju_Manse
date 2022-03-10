@@ -30,7 +30,7 @@ const styles = {
   "&.MuiButton-outlined": {
         color: amber[100]
   },
-  borderRadius: 28
+  borderRadius: 28,
 }; 
 
 const purpleTheme = createTheme({
