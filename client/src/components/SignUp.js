@@ -16,7 +16,9 @@ import FormControl from '@mui/material/FormControl';
 import { NativeSelect } from '@mui/material';
 import { lightBlue,grey } from '@mui/material/colors'
 import {useNavigate } from 'react-router-dom';
-
+import SignUpIMG from '../image/SignUpIMG.png'
+import { withStyles } from "@material-ui/core/styles";
+import { purple,amber } from '@mui/material/colors'
 
 function Copyright(props) {
   return (
@@ -65,7 +67,7 @@ const lightBlueTheme = createTheme(
 //contained 버튼 기존 색 (primary) 변경
 
 
-const styles = {
+const styles1 = {
   /*"&.MuiButton-root": {
     border: "2px black solid"
   },*/
@@ -73,7 +75,23 @@ const styles = {
     color: "grey"
   },
   "&.MuiButton-contained": {
-    color: "white"
+    color: amber[300]
+  },
+  "&.MuiButton-outlined": {
+    color: "brown"
+  },
+  borderRadius: 28,
+}; 
+
+const styles2 = {
+  /*"&.MuiButton-root": {
+    border: "2px black solid"
+  },*/
+  "&.MuiButton-text": {
+    color: "grey"
+  },
+  "&.MuiButton-contained": {
+    color: purple[300]
   },
   "&.MuiButton-outlined": {
     color: "brown"
@@ -119,8 +137,36 @@ export default function SignUp() {
   const navigate = useNavigate();
   // 페이지 변환과 동시에 변수 값 전달하는 함수
 
+  
+const purpleTheme = createTheme({
+  palette: {
+    primary: {
+      light: purple[300],
+      main: purple[400],
+      dark: purple[300],
+      contrastText: '#fff',
+      
+    },
+    secondary: {
+      light: purple[300],
+      main: '#ffffff',
+      dark: purple[300],
+      contrastText: purple[300],
+    },
+  },
+});
+
+
+  const PurpleTextTypography = withStyles({
+    root: {
+      color: purple[400]
+    }
+  })(Typography);
 
   return (
+    <div class="card" style={{ top:'9px'}}>
+     <img src = {SignUpIMG} style={{maxWidth:'520px'}} />
+       <div class="text-wrap" style={{ top:'420px',}}>
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -132,107 +178,116 @@ export default function SignUp() {
                   alignItems: 'center',
                 }}
               >
-              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                <LockOutlinedIcon />
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                당신의 정보를 입력 하세요
-              </Typography>
+              <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'52px'}}>
+                내 사주 알아보기
+              </PurpleTextTypography>
               <Box component="form" noValidate sx={{ mt: 3 }}>
                 <Grid container spacing={3}>
 
-                  <Grid item xs={12} >
+                  <Grid item xs={12} textAlign="left">
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
                     이름
+                    </PurpleTextTypography>
                   </Grid>
 
                   <Grid item xs={12}>
                     <TextField
                       required
                       fullWidth
-                      label="이름"
                       onChange = {nameChange}
                       value = {username}
                       
                     />
                   </Grid>
 
-                  <Grid item xs={12} >
+                  <Grid item xs={12} textAlign="left">
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
                     생년월일
+                    </PurpleTextTypography>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
-                    <FormControl fullWidth >
-                      <InputLabel id="demo-simple-select-label">년</InputLabel>
-                        <NativeSelect
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          defaultValue={searchYear}
-                          value={searchYear}
-                          onChange={(e) => handleChange(e, 'year')}
-                        >
-                          {
-                            YEAR_SELECT.map((year,idx) => {
-                              return <option key={idx} value={year}>{year}</option>
-                              }
-                           )
-                          }
-                        </NativeSelect>
-                      </FormControl>
-                  </Grid>
-
-                  <Grid item xs={12} sm={4}>
-                    <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">월</InputLabel>
-                        <NativeSelect
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={searchMonth}
-                          label="Age"
-                          onChange={(e) => handleChange(e, 'month')}
-                        >
-                          {
-                            MONTH_SELECT.map((month, idx) => {
-                              return <option key={idx} value={month}>{month}</option>
-                              }
+                  <Grid item xs={12} sm={4} >
+                    <ThemeProvider  theme={purpleTheme}>
+                      <FormControl fullWidth   >
+                        <InputLabel id="HSYouji_font" >년</InputLabel>
+                          <NativeSelect 
+                            id="HSYouji_font"
+                            defaultValue={searchYear}
+                            value={searchYear}
+                            onChange={(e) => handleChange(e, 'year')}
+                          >
+                            {
+                              YEAR_SELECT.map((year,idx) => {
+                                return <option key={idx} value={year}>{year}</option>
+                                }
                             )
-                          }
-                        </NativeSelect>
-                      </FormControl>
+                            }
+                          </NativeSelect>
+                        </FormControl>
+                      </ThemeProvider>
                   </Grid>
 
                   <Grid item xs={12} sm={4}>
-                    <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">일</InputLabel>
-                        <NativeSelect
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={searchDate}
-                          label="Age"
-                          onChange={(e) => handleChange(e, 'date')}
-                        >
-                          {
-                            DATE_SELECT.map((date, idx) => {
-                              return <option key={idx} value={date}>{date}</option>
-                              }
-                            )
-                          }
-                        </NativeSelect>
-                      </FormControl>
+                    <ThemeProvider  theme={purpleTheme}>
+                      <FormControl fullWidth >
+                        <InputLabel id="HSYouji_font" >월</InputLabel>
+                          <NativeSelect
+                            labelId="demo-simple-select-label"
+                            id="HSYouji_font"
+                            value={searchMonth}
+                            label="Age"
+                            onChange={(e) => handleChange(e, 'month')}
+                          >
+                            {
+                              MONTH_SELECT.map((month, idx) => {
+                                return <option key={idx} value={month}>{month}</option>
+                                }
+                              )
+                            }
+                          </NativeSelect>
+                       </FormControl>
+                    </ThemeProvider>
                   </Grid>
 
-                  <Grid item xs={12} >
+                  <Grid item xs={12} sm={4}>
+                    <ThemeProvider  theme={purpleTheme}>
+                      <FormControl fullWidth>
+                        <InputLabel id="HSYouji_font">일</InputLabel>
+                          <NativeSelect
+                            labelId="demo-simple-select-label"
+                            id="HSYouji_font"
+                            value={searchDate}
+                            label="Age"
+                            onChange={(e) => handleChange(e, 'date')}
+                          >
+                            {
+                              DATE_SELECT.map((date, idx) => {
+                                return <option key={idx} value={date}>{date}</option>
+                                }
+                              )
+                            }
+                          </NativeSelect>
+                        </FormControl>
+                    </ThemeProvider>
+                  </Grid>
+
+                  <Grid item xs={12} textAlign="left" >
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
                     양/음력
+                    </PurpleTextTypography>
                   </Grid>
 
                   <Grid item xs={12} sm={6}>
-                    <ThemeProvider theme={lightBlueTheme}>
+                    <ThemeProvider  theme={purpleTheme}>
                       <Button 
+                        id='HSYouji_font'
                         onClick={handleClick}
                         color={flag ? "primary" : "secondary"}
                         variant="contained" 
                         fullWidth 
+                        style={{fontSize:'20px'}}
                         size="large"
-                        sx={styles}
+                        sx={styles1}
                       >
                         양력
                       </Button>
@@ -240,14 +295,17 @@ export default function SignUp() {
                   </Grid>
 
                   <Grid item xs={12} sm={6}>
-                    <ThemeProvider theme={lightBlueTheme}>
+                    <ThemeProvider theme={purpleTheme}>
+                      
                       <Button 
+                        id='HSYouji_font'
                         onClick={handleClick}
                         color={flag ? "secondary" : "primary"}
                         variant="contained" 
                         fullWidth 
                         size="large"
-                        sx={styles}
+                        sx={styles1}
+                        style={{fontSize:'20px'}}
                         >
                           음력
                       </Button>
@@ -256,30 +314,34 @@ export default function SignUp() {
 
                 </Grid>
                 <br></br>
-           
-                <Button
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  onClick={()=> {
-                    navigate
-                    ('/result',
-                    { state: { username: username ,
-                      birthDate : searchYear +"/"+ searchMonth+"/" + searchDate, 
-                      birthYear : searchYear,
-                      birthMonth : searchMonth,
-                      birthDay : searchDate,
-                      flag: flag}}
-                    )
-                  }}
-                >
-                  나의 사주 분석하기
-                </Button>
-          
+                <ThemeProvider theme={purpleTheme}>
+                  <Button
+                    id='HSYouji_font'
+                    style={{fontSize:'35px',top:'10px'}}
+                    fullWidth
+                    variant="contained"
+                    sx={styles1}
+                    onClick={()=> {
+                      navigate
+                      ('/result',
+                      { state: { username: username ,
+                        birthDate : searchYear +"/"+ searchMonth+"/" + searchDate, 
+                        birthYear : searchYear,
+                        birthMonth : searchMonth,
+                        birthDay : searchDate,
+                        flag: flag}}
+                      )
+                    }}
+                  >
+                    나의 사주 분석하기
+                  </Button>
+                </ThemeProvider>
               </Box>
             </Box>
             <Copyright sx={{ mt: 5 }} />
           </Container>
         </ThemeProvider>
+      </div>
+    </div>
   );
 }
