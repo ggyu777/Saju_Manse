@@ -22,7 +22,7 @@ import { purple,amber } from '@mui/material/colors'
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="center" {...props} >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         sajuzzam
@@ -166,7 +166,7 @@ const purpleTheme = createTheme({
   return (
     <div class="card" style={{ top:'9px'}}>
      <img src = {SignUpIMG} style={{maxWidth:'520px'}} />
-       <div class="text-wrap" style={{ top:'420px',}}>
+       <div class="text-wrap" style={{ top:'450px',}}>
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -182,18 +182,17 @@ const purpleTheme = createTheme({
                 내 사주 알아보기
               </PurpleTextTypography>
               <Box component="form" noValidate sx={{ mt: 3 }}>
-                <Grid container spacing={3}>
+                <Grid container spacing={4}>
 
                   <Grid item xs={12} textAlign="left">
-                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px',marginBottom:'10px'}}>
                     이름
                     </PurpleTextTypography>
-                  </Grid>
-
-                  <Grid item xs={12}>
+             
                     <TextField
                       required
                       fullWidth
+                      style={{backgroundColor: "white"}}
                       onChange = {nameChange}
                       value = {username}
                       
@@ -201,7 +200,7 @@ const purpleTheme = createTheme({
                   </Grid>
 
                   <Grid item xs={12} textAlign="left">
-                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px',marginBottom:'-10px'}}>
                     생년월일
                     </PurpleTextTypography>
                   </Grid>
@@ -213,6 +212,7 @@ const purpleTheme = createTheme({
                           <NativeSelect 
                             id="HSYouji_font"
                             defaultValue={searchYear}
+                            colors={purple[300]} 
                             value={searchYear}
                             onChange={(e) => handleChange(e, 'year')}
                           >
@@ -234,6 +234,7 @@ const purpleTheme = createTheme({
                           <NativeSelect
                             labelId="demo-simple-select-label"
                             id="HSYouji_font"
+                            colors={purple[300]} 
                             value={searchMonth}
                             label="Age"
                             onChange={(e) => handleChange(e, 'month')}
@@ -256,6 +257,7 @@ const purpleTheme = createTheme({
                           <NativeSelect
                             labelId="demo-simple-select-label"
                             id="HSYouji_font"
+                            colors={purple[300]} 
                             value={searchDate}
                             label="Age"
                             onChange={(e) => handleChange(e, 'date')}
@@ -272,7 +274,7 @@ const purpleTheme = createTheme({
                   </Grid>
 
                   <Grid item xs={12} textAlign="left" >
-                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px'}}>
+                    <PurpleTextTypography id='HSYouji_font' theme={purpleTheme} style={{fontSize:'25px',marginBottom:'-20px'}}>
                     양/음력
                     </PurpleTextTypography>
                   </Grid>
@@ -317,7 +319,7 @@ const purpleTheme = createTheme({
                 <ThemeProvider theme={purpleTheme}>
                   <Button
                     id='HSYouji_font'
-                    style={{fontSize:'35px',top:'10px'}}
+                    style={{fontSize:'35px',top:'30px',marginBottom:'15px'}}
                     fullWidth
                     variant="contained"
                     sx={styles1}
