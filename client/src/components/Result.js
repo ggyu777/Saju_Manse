@@ -22,7 +22,7 @@ export default function Result()
     var birthdate1 = birthYear1 + birthMonth1 + birthDay1;
 
     const flag1 = location.state.flag;
-      //ㅎㅎhk
+      //ㅎㅎhkzzz
     if(flag1 == false)
     {
       birthdate1 = LunarCalendar(birthdate1)
