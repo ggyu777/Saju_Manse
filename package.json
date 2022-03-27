@@ -12,6 +12,7 @@
     "nodemon": "^2.0.15",
     "react-router-dom": "^6.2.1",
     "request": "^2.88.2",
+    "webpack": "^5.70.0",
     "xml-js": "^1.6.11",
     "xml-json": "^2.0.2"
   },
